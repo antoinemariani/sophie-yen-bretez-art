@@ -1,0 +1,39 @@
+/* navbar-desktop */
+
+/* Auto layout */
+.navbar-desktop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 32px 96px;
+  gap: 600px;
+
+  position: absolute;
+  width: 100vw;
+  height: 15vh;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+
+  background: #ffffff;
+}
+
+/* navbar-title */
+
+/* Auto layout */
+
+.navbar-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 16px;
+
+  /* width: 217px;
+  height: 25px; */
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
