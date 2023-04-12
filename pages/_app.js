@@ -1,5 +1,4 @@
 import '@/styles/globals.scss';
-import variables from '@/styles/variables.module.scss';
 
 // import localFont from 'next/font/local';
 

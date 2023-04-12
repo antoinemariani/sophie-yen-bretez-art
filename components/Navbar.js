@@ -1,4 +1,3 @@
-import variables from '@/styles/variables.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '@/styles/navbar.module.scss';
@@ -6,19 +5,19 @@ import styles from '@/styles/navbar.module.scss';
 export default function Navbar({}) {
   return (
     <nav className={styles.navbar}>
-      <div className={styles['title']}>
-        <Image
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div>
+        <h1 className={styles['navbar-title']}>sophie yen bretez</h1>
       </div>
-      <div className={styles.links}>
-        <Link href="/">Home</Link>
-        <Link href="/about">About</Link>
-        <Link href="/contact">Contact</Link>
+      <div className={styles.ul}>
+        <Link className={styles.li} href="/">
+          Home
+        </Link>
+        <Link className={styles.li} href="/about">
+          About
+        </Link>
+        <Link className={styles.li} href="/contact">
+          Contact
+        </Link>
       </div>
     </nav>
   );
