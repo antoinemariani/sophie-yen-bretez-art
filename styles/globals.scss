@@ -51,6 +51,7 @@
   --dark-gray: #2c2626;
   --base-gray: #4d4f51;
   --light-gray: #727272;
+  --white: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -100,11 +101,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
+  background: linear-gradient(to bottom, transparent, rgb(var(--white)))
     rgb(var(--background-start-rgb));
 }
 

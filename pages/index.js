@@ -3,8 +3,23 @@ import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.scss';
 import Navbar from '@/components/Navbar';
+import Banner from '@/components/Banner';
+
+import sampleImg from '../public/SYB004.jpg';
 
 const inter = Inter({ subsets: ['latin'] });
+
+const sampleLinkTitle = 'Paintings';
+const sampleLinkHref = '/paintings';
+const samplePoem =
+  "What to do with an existence\nMarked with the seal \nOf contingency? \nOpen and gaping wound, \nMuch too easy to hide. \n- To find one's place.";
+const sampleSize = '150 x 150 cm';
+const sampleTechnique = 'oil painting on linen';
+const sampleDate = 'October 2022';
+
+const sampleTitle = 'Adoption';
+const sampleDescription =
+  'Sophie-Yen Bretez is a French-born Vietnamese self-taught artist, currently working in Paris. She finished her Master Grand École at Neoma Business School in Rouen, France in 2018, and after that she worked across different management positions in Paris. Since 2021, Bretez embarked on her artistic journey, expanding her artistic skill and exposure to the arts. Bretez focuses on discovering a way to channel and mirror the human condition in a state of recovery. Depicting colourful, bold and sensual settings, Bretez states: “I paint horizons for those who have suffered.” The artist explores the concept of reverse voyeurism, challenging the viewer with the evident nudity of her characters. The checkered floors contrast with the blush-pink flesh, bringing the association of playing a game with oneself and with others. Always gazing back, Bretez’s figures have vivid emotive facial expressions, which invite the viewer to actively participate in the ongoing discussion on freedom of speech and self-expression, and the social conformities regarding the female body in the nude. Delving into questions of pain, duality, identity, femininity, and resilience, Bretez’s work depicts complex emotional states in isolated painterly narratives.';
 
 export default function Home() {
   return (
@@ -35,6 +50,59 @@ export default function Home() {
           <span className="material-symbols-rounded">arrow_back_ios</span>
           <span className="material-symbols-rounded">arrow_forward_ios</span>
           <span className="material-symbols-rounded">arrow_outward</span>
+        </div>
+        <div>
+          <Banner
+            variant="image-column"
+            imgPosition="left"
+            imgSrc={sampleImg}
+            imgAlt="SYB004"
+            title={sampleTitle}
+            description={sampleDescription}
+          />
+          <Banner
+            variant="image-column"
+            imgPosition="right"
+            imgSrc={sampleImg}
+            imgAlt="SYB004"
+            title={sampleTitle}
+            description={sampleDescription}
+          />
+          <Banner
+            variant="category"
+            imgPosition="right"
+            imgSrc={sampleImg}
+            imgAlt="SYB004"
+            title={sampleLinkTitle}
+            href={sampleLinkHref}
+          />
+          <Banner
+            variant="category"
+            imgPosition="left"
+            imgSrc={sampleImg}
+            imgAlt="SYB004"
+            title={sampleLinkTitle}
+            href={sampleLinkHref}
+          />
+          <Banner
+            variant="contact"
+            imgPosition="right"
+            imgSrc={sampleImg}
+            imgAlt="SYB004"
+            title={sampleLinkTitle}
+            href={sampleLinkHref}
+          />
+          <Banner
+            variant="image-details"
+            imgPosition="right"
+            imgSrc={sampleImg}
+            imgAlt="SYB004"
+            title={sampleTitle}
+            poem={samplePoem}
+            size={sampleSize}
+            technique={sampleTechnique}
+            date={sampleDate}
+          />
         </div>
       </main>
     </>
