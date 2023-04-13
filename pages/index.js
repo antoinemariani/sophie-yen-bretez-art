@@ -7,6 +7,7 @@ import Navbar from '@/components/Navbar';
 import Banner from '@/components/Banner';
 import Grid from '@/components/Grid';
 
+import imagesDatabase from '@/data/db';
 import sampleImg from '../public/SYB004.jpg';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -100,7 +101,7 @@ export default function Home() {
             date={sampleDate}
           />
         </div>
-        <Grid year="2023" />
+        <Grid year="2023">{imagesDatabase}</Grid>
       </main>
     </>
   );

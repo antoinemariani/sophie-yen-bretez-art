@@ -2,36 +2,29 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from '@/styles/grid.module.scss';
 
-import sampleImg from '../public/SYB004.jpg';
-import sampleImg2 from '../public/SYB003.jpg';
+// import sampleImg from '../public/SYB004.jpg';
+// import sampleImg2 from '../public/SYB003.jpg';
 
-const sampleGrid = [...Array(30)].map(
-  (item, i) =>
-    (item =
-      i % 2 === 0 ? (
+export default function Grid({ year, children }) {
+  const gridElements = children.map((item, i) => {
+    return (
+      <Link href={'/art/' + item.alt} key={'link' + i}>
         <Image
-          src={sampleImg}
+          src={item.src}
           className={styles.grid_item}
-          alt="image"
+          alt={item.alt}
           key={'img' + i}
         />
-      ) : (
-        <Image
-          src={sampleImg2}
-          className={styles.grid_item}
-          alt="image"
-          key={'img' + i}
-        />
-      ))
-);
+      </Link>
+    );
+  });
 
-export default function Grid({ year }) {
   return (
     <section id={year} className={styles.grid}>
       <span className={styles.grid_title}>
         <h2>{year}</h2>
       </span>
-      <div className={styles.grid_container}>{sampleGrid}</div>
+      <div className={styles.grid_container}>{gridElements}</div>
     </section>
   );
 }
