@@ -1,7 +1,7 @@
 import styles from '@/styles/text-column.module.scss';
 
 export default function TextColumn({
-  imgPosition,
+  imgpos,
   title,
   poem,
   size,
@@ -15,9 +15,7 @@ export default function TextColumn({
   return (
     <div
       className={
-        imgPosition === 'right'
-          ? styles.text_column_reverse
-          : styles.text_column
+        imgpos === 'right' ? styles.text_column_reverse : styles.text_column
       }
     >
       <span className="material-symbols-rounded">close</span>

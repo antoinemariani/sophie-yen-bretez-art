@@ -2,8 +2,10 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.scss';
+
 import Navbar from '@/components/Navbar';
 import Banner from '@/components/Banner';
+import Grid from '@/components/Grid';
 
 import sampleImg from '../public/SYB004.jpg';
 
@@ -32,12 +34,6 @@ export default function Home() {
       </Head>
       <Navbar />
       <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.js</code>
-          </p>
-        </div>
         <div>
           <h1>Test H1</h1>
           <h2>Test H2</h2>
@@ -54,7 +50,7 @@ export default function Home() {
         <div>
           <Banner
             variant="image-column"
-            imgPosition="left"
+            imgpos="left"
             imgSrc={sampleImg}
             imgAlt="SYB004"
             title={sampleTitle}
@@ -62,7 +58,7 @@ export default function Home() {
           />
           <Banner
             variant="image-column"
-            imgPosition="right"
+            imgpos="right"
             imgSrc={sampleImg}
             imgAlt="SYB004"
             title={sampleTitle}
@@ -70,7 +66,7 @@ export default function Home() {
           />
           <Banner
             variant="category"
-            imgPosition="right"
+            imgpos="right"
             imgSrc={sampleImg}
             imgAlt="SYB004"
             title={sampleLinkTitle}
@@ -78,7 +74,7 @@ export default function Home() {
           />
           <Banner
             variant="category"
-            imgPosition="left"
+            imgpos="left"
             imgSrc={sampleImg}
             imgAlt="SYB004"
             title={sampleLinkTitle}
@@ -86,7 +82,7 @@ export default function Home() {
           />
           <Banner
             variant="contact"
-            imgPosition="right"
+            imgpos="right"
             imgSrc={sampleImg}
             imgAlt="SYB004"
             title={sampleLinkTitle}
@@ -94,7 +90,7 @@ export default function Home() {
           />
           <Banner
             variant="image-details"
-            imgPosition="right"
+            imgpos="right"
             imgSrc={sampleImg}
             imgAlt="SYB004"
             title={sampleTitle}
@@ -104,6 +100,7 @@ export default function Home() {
             date={sampleDate}
           />
         </div>
+        <Grid year="2023" />
       </main>
     </>
   );

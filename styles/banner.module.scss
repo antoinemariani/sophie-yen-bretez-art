@@ -1,9 +1,17 @@
 .banner {
   display: flex;
+  width: 100%;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: flex-end;
   padding: 8px 32px;
-  gap: 128px;
+  gap: 0.1em;
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
 }
 
 .banner_reverse {
@@ -17,6 +25,7 @@
 .contact_links {
   display: flex;
   flex-direction: column;
+  justify-self: stretch;
   align-items: flex-start;
   padding: 0px;
   gap: 40px;

@@ -7,7 +7,7 @@ import TextColumn from './TextColumn';
 
 export default function Banner({
   variant,
-  imgPosition = 'left',
+  imgpos = 'left',
   imgSrc,
   imgAlt,
   title,
@@ -22,9 +22,7 @@ export default function Banner({
     case 'image-column':
       return (
         <section
-          className={
-            imgPosition === 'right' ? styles.banner_reverse : styles.banner
-          }
+          className={imgpos === 'right' ? styles.banner_reverse : styles.banner}
         >
           <Image src={imgSrc} alt={imgAlt} width="30em" />
           <Description title={title} description={description} />
@@ -33,9 +31,7 @@ export default function Banner({
     case 'category':
       return (
         <section
-          className={
-            imgPosition === 'right' ? styles.banner_reverse : styles.banner
-          }
+          className={imgpos === 'right' ? styles.banner_reverse : styles.banner}
         >
           <Image src={imgSrc} alt={imgAlt} width="30em" />
           <CategoryLink title={title} href={href} />
@@ -44,9 +40,7 @@ export default function Banner({
     case 'contact':
       return (
         <section
-          className={
-            imgPosition === 'right' ? styles.banner_reverse : styles.banner
-          }
+          className={imgpos === 'right' ? styles.banner_reverse : styles.banner}
         >
           <Image src={imgSrc} alt={imgAlt} width="30em" />
           <div className={styles.contact_links}>
@@ -68,18 +62,11 @@ export default function Banner({
     case 'image-details':
       return (
         <section
-          className={
-            imgPosition === 'right' ? styles.banner_reverse : styles.banner
-          }
+          className={imgpos === 'right' ? styles.banner_reverse : styles.banner}
         >
-          <Image
-            src={imgSrc}
-            alt={imgAlt}
-            imgPosition={imgPosition}
-            width="30em"
-          />
+          <Image src={imgSrc} alt={imgAlt} imgpos={imgpos} width="30em" />
           <TextColumn
-            imgPosition={imgPosition}
+            imgpos={imgpos}
             poem={poem}
             size={size}
             technique={technique}
