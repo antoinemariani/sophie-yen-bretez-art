@@ -1,4 +1,5 @@
 import '@/styles/globals.scss';
+import Layout from '@/components/Layout';
 
 // import localFont from 'next/font/local';
 
@@ -23,5 +24,9 @@ import '@/styles/globals.scss';
 // });
 
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  );
 }
