@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar';
 import { Html, Head, Main, NextScript } from 'next/document';
+import Footer from '@/components/Footer';
 
 export default function Document() {
   return (
@@ -12,7 +13,9 @@ export default function Document() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body>
+        <Navbar />
         <Main />
+        <Footer />
         <NextScript />
       </body>
     </Html>

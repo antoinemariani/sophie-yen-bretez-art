@@ -20,7 +20,6 @@ export default function Contact() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
       <main>
         <Banner
           variant="contact"
@@ -30,7 +29,6 @@ export default function Contact() {
           title="contact"
         />
       </main>
-      <Footer />
     </>
   );
 }

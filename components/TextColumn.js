@@ -1,4 +1,5 @@
 import styles from '@/styles/text-column.module.scss';
+import Link from 'next/link';
 
 export default function TextColumn({
   imgpos,
@@ -18,7 +19,9 @@ export default function TextColumn({
         imgpos === 'right' ? styles.text_column_reverse : styles.text_column
       }
     >
-      <span className="material-symbols-rounded">close</span>
+      <Link href="/art">
+        <span className="material-symbols-rounded">close</span>
+      </Link>
       <div className={styles.content}>
         <span className={styles.poem}>{poem ? splitText : <p>{title}</p>}</span>
         <span className={styles.details}>

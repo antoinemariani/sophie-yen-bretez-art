@@ -35,7 +35,6 @@ export default function Art({ artData }) {
       <Head>
         <title>{artData.title}</title>
       </Head>
-      <Navbar />
       <main>
         <h1 className={styles.art_title}>{artData.title}</h1>
         <Banner
