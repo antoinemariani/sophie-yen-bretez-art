@@ -9,7 +9,7 @@ export default function Footer() {
         href="https://www.instagram.com/sophieyen.bretez/"
         className={styles.instagram}
       >
-        <span className="material-symbols-outlined">search</span>
+        <span className="material-symbols-outlined">photo_camera</span>
         <span className={styles.external}>
           <p className={styles.external_text}>sophieyen.bretez</p>
           <span className="material-symbols-rounded">arrow_outward</span>
@@ -21,7 +21,7 @@ export default function Footer() {
           <span className="material-symbols-rounded">arrow_outward</span>
         </span>
       </Link>
-      <span className="copyright">© Sophie Yen Bretez Art EIRL, 2023</span>
+      <span className="copyright">© SYB Art, 2023</span>
     </footer>
   );
 }

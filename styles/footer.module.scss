@@ -3,11 +3,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 32px 64px;
-  gap: 16px;
 
-  width: 1442px;
-  height: 196px;
+  padding: 2vh 2em;
+  gap: 16px;
+  width: 100vw;
+
+  font-size: 1em;
 
   background: #ffffff;
 }
@@ -19,6 +20,8 @@
   align-items: center;
   padding: 0px;
   gap: 8px;
+
+  font-size: 1em;
 }
 
 .external {
@@ -27,15 +30,17 @@
   align-items: center;
   padding: 0px;
   gap: 4px;
+
+  font-size: 1em;
 }
 
 .external_text {
   font-family: var(--font-serif);
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
   line-height: 20px;
-  /* identical to box height */
+
+  font-size: 1em;
 
   color: var(--dark-gray);
 }

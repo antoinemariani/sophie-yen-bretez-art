@@ -26,19 +26,19 @@
   flex-direction: row;
   align-items: center;
   padding: 0px 16px;
-  font-family: 'Libre Baskerville';
+  font-family: var(--font-serif);
   font-style: normal;
   font-weight: 700;
   font-size: 1.4vw;
   flex-grow: 1;
-  color: #000000;
+  color: var(--black);
 }
 
 .li {
-  font-family: 'Libre Baskerville';
+  font-family: var(--font-serif);
   font-style: normal;
   font-weight: 400;
-  font-size: 0.6em;
+  font-size: 1vw;
   /* identical to box height */
 
   display: flex;
@@ -46,24 +46,24 @@
   text-align: center;
   text-transform: uppercase;
 
-  color: #727272;
+  color: var(--light-gray);
 }
 
 .ul {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   height: 100%;
+  width: 50%;
   padding: 0px;
-  gap: 0.5em;
+  gap: 1em;
 }
 
 .nav-li-child {
-  font-family: 'Libre Baskerville';
+  font-family: var(--font-serif);
   font-style: normal;
   font-weight: 400;
-  font-size: 10px;
   line-height: 15px;
   /* identical to box height */
 
@@ -72,7 +72,7 @@
   text-align: center;
   text-transform: uppercase;
 
-  color: #727272;
+  color: var(--light-gray);
 }
 
 .nav-open-item {
