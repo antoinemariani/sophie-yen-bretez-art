@@ -5,12 +5,15 @@ import styles from '@/styles/navbar.module.scss';
 export default function Navbar({}) {
   return (
     <nav className={styles.navbar}>
-      <div>
+      <Link href="/">
         <h1 className={styles['navbar-title']}>sophie yen bretez</h1>
-      </div>
+      </Link>
       <div className={styles.ul}>
         <Link className={styles.li} href="/">
           Home
+        </Link>
+        <Link className={styles.li} href="/art">
+          Art
         </Link>
         <Link className={styles.li} href="/about">
           About

@@ -1,3 +1,4 @@
+import Navbar from '@/components/Navbar';
 import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
@@ -8,6 +9,7 @@ export default function Document() {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=optional"
         />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <body>
         <Main />

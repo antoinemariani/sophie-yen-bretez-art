@@ -8,7 +8,11 @@ import styles from '@/styles/grid.module.scss';
 export default function Grid({ year, children }) {
   const gridElements = children.map((item, i) => {
     return (
-      <Link href={'/art/' + item.alt} key={'link' + i}>
+      <Link
+        href={'/art/' + item.alt}
+        key={'link' + i}
+        className={styles.grid_link}
+      >
         <Image
           src={item.src}
           className={styles.grid_item}

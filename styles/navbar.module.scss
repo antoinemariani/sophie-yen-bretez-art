@@ -6,7 +6,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 24px;
+  padding: 16px 2em;
 
   position: fixed;
   top: 0;
@@ -29,7 +29,7 @@
   font-family: 'Libre Baskerville';
   font-style: normal;
   font-weight: 700;
-  font-size: 1em;
+  font-size: 1.4vw;
   flex-grow: 1;
   color: #000000;
 }
@@ -38,7 +38,7 @@
   font-family: 'Libre Baskerville';
   font-style: normal;
   font-weight: 400;
-  font-size: 0.5em;
+  font-size: 0.6em;
   /* identical to box height */
 
   display: flex;

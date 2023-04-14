@@ -1,6 +1,10 @@
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import Navbar from '@/components/Navbar';
 import imagesDatabase from '@/data/db';
+import Banner from '@/components/Banner';
+
+import styles from '@/styles/[id].module.scss';
 
 export async function getStaticProps({ params }) {
   const artData = imagesDatabase.find((img) => img.id == params.id);
@@ -31,9 +35,23 @@ export default function Art({ artData }) {
       <Head>
         <title>{artData.title}</title>
       </Head>
-      <article>
-        <h1>{artData.title}</h1>
-      </article>
+      <Navbar />
+      <main>
+        <h1 className={styles.art_title}>{artData.title}</h1>
+        <Banner
+          variant="image-details"
+          imgpos="left"
+          imgSrc={artData.src}
+          imgAlt={artData.alt}
+          title={artData.title}
+          description={artData.description}
+          href={'/art/' + artData.id}
+          poem={artData.poem}
+          size={artData.size}
+          technique={artData.technique}
+          date={artData.date}
+        />
+      </main>
     </>
   );
 }
