@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import Head from 'next/head';
-import styles from '@/styles/contact.module.scss';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import styles from '@/styles/about.module.scss';
 import Banner from '@/components/Banner';
 import imagesDatabase from '@/data/db';
 

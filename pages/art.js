@@ -1,13 +1,9 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import Navbar from '@/components/Navbar';
-import Banner from '@/components/Banner';
 import Grid from '@/components/Grid';
 
 import styles from '@/styles/art.module.scss';
 
 import imagesDatabase from '@/data/db';
-import Footer from '@/components/Footer';
 
 export default function Home() {
   return (

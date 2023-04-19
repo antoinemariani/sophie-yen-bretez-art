@@ -1,15 +1,11 @@
-import Link from 'next/link';
 import Head from 'next/head';
 
 import styles from '@/styles/contact.module.scss';
 
-import Navbar from '@/components/Navbar';
 import Banner from '@/components/Banner';
-import Footer from '@/components/Footer';
 
 import contact from '@/public/contact.jpeg';
 import imagesDatabase from '@/data/db';
-// import Footer from '@/components/Footer'
 
 export default function Contact() {
   return (

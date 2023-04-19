@@ -1,3 +1,5 @@
+$footer-font-size: 0.8rem;
+
 .footer {
   display: flex;
   flex-direction: column;
@@ -5,10 +7,10 @@
   align-items: flex-start;
 
   padding: 2vh 2em;
-  gap: 16px;
+  gap: 4px;
   width: 100vw;
 
-  font-size: 1em;
+  font-size: $footer-font-size;
 
   background: #ffffff;
 }
@@ -21,7 +23,7 @@
   padding: 0px;
   gap: 8px;
 
-  font-size: 1em;
+  font-size: $footer-font-size;
 }
 
 .external {
@@ -31,16 +33,24 @@
   padding: 0px;
   gap: 4px;
 
-  font-size: 1em;
+  font-size: $footer-font-size;
 }
 
 .external_text {
   font-family: var(--font-sans);
   font-style: normal;
-  font-weight: 400;
   line-height: 20px;
 
-  font-size: 1em;
+  font-size: $footer-font-size;
+  font-weight: 300;
 
+  color: var(--dark-gray);
+}
+
+.copyright {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 300;
+  font-size: $footer-font-size;
   color: var(--dark-gray);
 }
