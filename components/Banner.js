@@ -65,6 +65,7 @@ export default function Banner({
         <section
           className={imgpos === 'right' ? styles.banner_reverse : styles.banner}
         >
+          {/* <span className="material-symbols-rounded">arrow_left</span> */}
           <Image src={imgSrc} alt={imgAlt} imgpos={imgpos} width="30em" />
           <TextColumn
             imgpos={imgpos}
@@ -73,6 +74,7 @@ export default function Banner({
             technique={technique}
             date={date}
           />
+          {/* <span className="material-symbols-rounded">arrow_right</span> */}
         </section>
       );
   }

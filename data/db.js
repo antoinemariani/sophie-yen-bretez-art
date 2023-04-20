@@ -10,7 +10,7 @@ import thegrip from './img/thegrip.png';
 
 const imagesDatabase = [
   {
-    id: 'adoption',
+    id: 0,
     src: adoption,
     alt: 'adoption',
     title: 'Adoption',
@@ -22,7 +22,7 @@ const imagesDatabase = [
     date: 'October 2022',
   },
   {
-    id: 'amouage',
+    id: 1,
     src: amouage,
     alt: 'amouage',
     title: 'Amouage',
@@ -34,7 +34,7 @@ const imagesDatabase = [
     date: 'February 2023',
   },
   {
-    id: 'butterfly',
+    id: 2,
     src: butterfly,
     alt: 'butterfly',
     title: 'Butterfly',
@@ -45,7 +45,7 @@ const imagesDatabase = [
     date: 'August 2022',
   },
   {
-    id: 'consent',
+    id: 3,
     src: consent,
     alt: 'consent',
     title: 'Consent',
@@ -57,7 +57,7 @@ const imagesDatabase = [
     date: 'December 2022',
   },
   {
-    id: 'firsttimes',
+    id: 4,
     src: firsttimes,
     alt: 'firsttimes',
     title: 'First Times',
@@ -69,7 +69,7 @@ const imagesDatabase = [
     date: 'November 2022',
   },
   {
-    id: 'leaving',
+    id: 5,
     src: leaving,
     alt: 'leaving',
     title: 'Leaving',
@@ -81,7 +81,7 @@ const imagesDatabase = [
     date: 'January 2023',
   },
   {
-    id: 'runaway',
+    id: 6,
     src: runaway,
     alt: 'runaway',
     title: 'Runaway',
@@ -93,7 +93,7 @@ const imagesDatabase = [
     date: 'November 2022',
   },
   {
-    id: 'schizophrenia',
+    id: 7,
     src: schizophrenia,
     alt: 'schizophrenia',
     title: 'Schizophrenia',
@@ -105,7 +105,7 @@ const imagesDatabase = [
     date: 'February 2023',
   },
   {
-    id: 'thegrip',
+    id: 8,
     src: thegrip,
     alt: 'thegrip',
     title: 'The Grip',

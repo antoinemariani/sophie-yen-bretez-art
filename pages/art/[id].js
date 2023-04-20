@@ -7,7 +7,7 @@ import Banner from '@/components/Banner';
 import styles from '@/styles/[id].module.scss';
 
 export async function getStaticProps({ params }) {
-  const artData = imagesDatabase.find((img) => img.id == params.id);
+  const artData = imagesDatabase.find((img) => img.id == params.id.toString());
   return {
     props: {
       artData,
@@ -19,7 +19,7 @@ export async function getStaticPaths() {
   const paths = imagesDatabase.map((img) => {
     return {
       params: {
-        id: img.id,
+        id: img.id.toString(),
       },
     };
   });

@@ -9,7 +9,7 @@ export default function Grid({ year, children }) {
   const gridElements = children.map((item, i) => {
     return (
       <Link
-        href={'/art/' + item.alt}
+        href={'/art/' + item.id}
         key={'link' + i}
         className={styles.grid_link}
       >
