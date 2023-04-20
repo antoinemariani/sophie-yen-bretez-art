@@ -6,7 +6,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 2em;
+  padding: 16px calc(2.5vw + 2rem);
 
   position: fixed;
   top: 0;
@@ -25,7 +25,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0px 16px;
   font-family: var(--font-sans);
   font-style: normal;
   font-weight: 700;

@@ -1,2 +1,28 @@
 // .main {
 // }
+
+.experience {
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 2.5vw;
+  justify-content: center;
+  align-items: flex-start;
+
+  @media (min-width: 1024px) {
+    padding: 8px 2.2vw;
+  }
+}
+
+.experience_block {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.experience_item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vh;
+}

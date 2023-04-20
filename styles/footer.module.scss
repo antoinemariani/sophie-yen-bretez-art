@@ -6,13 +6,16 @@ $footer-font-size: 0.8rem;
   justify-content: center;
   align-items: flex-start;
 
-  padding: 2vh 2em;
-  gap: 4px;
+  padding: 2vh 2rem;
   width: 100vw;
 
   font-size: $footer-font-size;
 
   background: #ffffff;
+
+  @media (min-width: 1024px) {
+    padding: 2vh calc(2.5vw + 2rem);
+  }
 }
 
 .instagram {
@@ -21,7 +24,7 @@ $footer-font-size: 0.8rem;
   justify-content: center;
   align-items: center;
   padding: 0px;
-  gap: 8px;
+  gap: 4px;
 
   font-size: $footer-font-size;
 }

@@ -4,6 +4,9 @@ import styles from '@/styles/Home.module.scss';
 import Banner from '@/components/Banner';
 
 import imagesDatabase from '@/data/db';
+import Image from 'next/image';
+
+import homeImage from '@/data/img/home.jpeg';
 
 // const sampleLinkTitle = 'Paintings';
 // const sampleLinkHref = '/paintings';
@@ -24,8 +27,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <Banner
+      <main className={styles.main}>
+        <div className={styles.home}>
+          <Image src={homeImage} alt="home" />
+        </div>
+        {/* <Banner
           variant="category"
           imgpos="right"
           imgSrc={imagesDatabase[1].src}
@@ -56,7 +62,7 @@ export default function Home() {
           imgAlt="contact"
           title="contact"
           href="/contact"
-        />
+        /> */}
       </main>
     </>
   );

@@ -11,7 +11,7 @@ export default function Footer() {
       >
         <span
           className="material-symbols-outlined"
-          style={{ fontWeight: '200', height: 'O.5rem' }}
+          style={{ fontWeight: '200', fontSize: '1.2rem' }}
         >
           photo_camera
         </span>
