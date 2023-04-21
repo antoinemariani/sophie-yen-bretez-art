@@ -2,21 +2,23 @@
 
 This is an art gallery for the artist Sophie-Yen Bretez
 
-The website is built with React and Next.js framework
+The website is built with React and Next.js framework, and hosted on Vercel.
 
-The website is hosted on Vercel
-
-The website is deployed on https://sophie-yen-bretez.vercel.app/
+The pre-production project is deployed on https://sophie-yen-bretez.vercel.app/
 
 # Getting Started
 
 First, run the development server:
 
+```bash
 npm run dev
+```
 
 or
 
-yarn dev
+```bash
+npm run dev
+```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
