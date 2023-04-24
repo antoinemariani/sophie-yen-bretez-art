@@ -19,9 +19,6 @@ export default function TextColumn({
         imgpos === 'right' ? styles.text_column_reverse : styles.text_column
       }
     >
-      {/* <Link href="/art">
-        <span className="material-symbols-rounded">close</span>
-      </Link> */}
       <div className={styles.content}>
         <span className={styles.poem}>{poem ? splitText : <p>{title}</p>}</span>
         <span className={styles.details}>
