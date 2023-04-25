@@ -1,5 +1,7 @@
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import Link from 'next/link';
+
 import Navbar from '@/components/Navbar';
 import imagesDatabase from '@/data/db';
 import Banner from '@/components/Banner';
@@ -35,8 +37,22 @@ export default function Art({ artData }) {
       <Head>
         <title>{artData.title}</title>
       </Head>
-      <main>
+      <main className={styles.main}>
         <h1 className={styles.art_title}>{artData.title}</h1>
+        <Link
+          href={
+            artData.id === 0
+              ? '/art/' + (imagesDatabase.length - 1)
+              : '/art/' + (artData.id - 1)
+          }
+        >
+          <span
+            className="material-symbols-outlined"
+            style={{ fontWeight: '200', fontSize: '1.2rem', flexGrow: '1' }}
+          >
+            chevron_left
+          </span>
+        </Link>
         <Banner
           variant="image-details"
           imgpos="left"
@@ -50,6 +66,20 @@ export default function Art({ artData }) {
           technique={artData.technique}
           date={artData.date}
         />
+        <Link
+          href={
+            artData.id + 1 >= imagesDatabase.length
+              ? '/art/0'
+              : '/art/' + (artData.id + 1)
+          }
+        >
+          <span
+            className="material-symbols-outlined"
+            style={{ fontWeight: '200', fontSize: '1.2rem', flexGrow: '1' }}
+          >
+            chevron_right
+          </span>
+        </Link>
       </main>
     </>
   );

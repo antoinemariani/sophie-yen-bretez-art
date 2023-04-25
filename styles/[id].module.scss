@@ -1,7 +1,11 @@
-// .main {
-// }
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
 .art_title {
+  display: none;
   font-family: var(--font-sans);
   font-style: italic;
   font-weight: 400;

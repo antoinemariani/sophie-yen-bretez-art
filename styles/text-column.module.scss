@@ -3,8 +3,8 @@
   align-self: stretch;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  justify-content: space-between;
+  flex-grow: 0;
+  justify-content: flex-end;
   align-items: flex-end;
   padding: 0px;
   gap: 10px;
@@ -15,7 +15,7 @@
   align-self: stretch;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: flex-start;
   padding: 0px;
   gap: 10px;
@@ -27,16 +27,19 @@
   align-items: flex-start;
   align-self: flex-start;
   padding: 0px;
-  gap: 48px;
+  gap: 0.8em;
 }
 
-.poem p {
-  font-family: var(--font-sans);
-  font-style: italic;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 25px;
-  text-align: left;
+.poem {
+  p {
+    font-family: var(--font-sans);
+    font-style: italic;
+    padding: 1px 0;
+    font-weight: 400;
+    font-size: 0.7em;
+    line-height: 1em;
+    text-align: left;
+  }
 }
 
 .details {
@@ -44,21 +47,18 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 0px;
-  gap: 8px;
 }
 
 .detail_regular {
   font-family: var(--font-sans);
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 0.6em;
 }
 
 .detail_italic {
   font-family: var(--font-sans);
   font-style: italic;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 0.6em;
 }
