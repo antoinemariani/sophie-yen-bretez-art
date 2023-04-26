@@ -17,6 +17,8 @@ import styles from '@/styles/[id].module.scss';
 //   useCdn: false,
 // });
 
+const artDatabase = imagesDatabase;
+
 export async function getStaticProps({ params }) {
   // const id = params.id;
   // const arts = await client.fetch(
@@ -25,7 +27,7 @@ export async function getStaticProps({ params }) {
   //   "imageUrl": image.asset->url
   // }`
   // );
-  const artData = imagesDatabase.find((img) => img._id == params.id.toString());
+  const artData = artDatabase.find((img) => img._id == params.id.toString());
   return {
     props: {
       artData,
@@ -37,7 +39,7 @@ export async function getStaticPaths() {
   // const arts = await client.fetch(`*[_type == "art"]{
   //   _id
   // }`);
-  const paths = imagesDatabase.map((img) => {
+  const paths = artDatabase.map((img) => {
     return {
       params: {
         id: img._id.toString(),
@@ -52,21 +54,18 @@ export async function getStaticPaths() {
 
 export default function Art({ artData }) {
   const next =
-    imagesDatabase.findIndex((img) => img === artData) + 1 >=
-    imagesDatabase.length
+    artDatabase.findIndex((img) => img === artData) + 1 >= artDatabase.length
       ? '/art/0'
       : '/art/' +
-        imagesDatabase.find(
-          (img, i) => imagesDatabase.at(i - 1)._id === artData._id
-        )._id;
+        artDatabase.find((img, i) => artDatabase.at(i - 1)._id === artData._id)
+          ._id;
 
   const previous =
-    imagesDatabase.findIndex((img) => img._id === artData._id) === 0
-      ? '/art/' + imagesDatabase.at(imagesDatabase.length - 1)._id
+    artDatabase.findIndex((img) => img._id === artData._id) === 0
+      ? '/art/' + artDatabase.at(artDatabase.length - 1)._id
       : '/art/' +
-        imagesDatabase.find(
-          (img, i) => imagesDatabase.at(i + 1)._id === artData._id
-        )._id;
+        artDatabase.find((img, i) => artDatabase.at(i + 1)._id === artData._id)
+          ._id;
 
   return (
     <>

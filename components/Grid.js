@@ -12,8 +12,8 @@ export default function Grid({ year, children }) {
       >
         <Image
           src={item.imageUrl}
-          width={500}
-          height={500}
+          width={300}
+          height={300}
           className={styles.grid_item}
           alt={item.title}
           key={'img' + i}

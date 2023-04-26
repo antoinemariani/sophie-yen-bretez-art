@@ -72,6 +72,7 @@ export default function Banner({
             imgpos={imgpos}
             width="1000"
             height="1000"
+            priority={true}
           />
           <TextColumn
             imgpos={imgpos}
