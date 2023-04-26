@@ -74,14 +74,20 @@ export default function Art({ artData }) {
       </Head>
       <main className={styles.main}>
         <h1 className={styles.art_title}>{artData.title}</h1>
-        <Link href={previous}>
-          <span
-            className="material-symbols-outlined"
-            style={{ fontWeight: '200', fontSize: '1.2rem', flexGrow: '1' }}
-          >
-            chevron_left
-          </span>
-        </Link>
+        <div style={{ height: '80vh', display: 'flex', alignItems: 'center' }}>
+          <Link href={previous}>
+            <span
+              className="material-symbols-outlined"
+              style={{
+                fontWeight: '200',
+                fontSize: '1.2rem',
+                flexGrow: '1',
+              }}
+            >
+              chevron_left
+            </span>
+          </Link>
+        </div>
         <Banner
           variant="image-details"
           imgpos="left"
@@ -95,14 +101,20 @@ export default function Art({ artData }) {
           technique={artData.technique}
           date={artData.date}
         />
-        <Link href={next}>
-          <span
-            className="material-symbols-outlined"
-            style={{ fontWeight: '200', fontSize: '1.2rem', flexGrow: '1' }}
-          >
-            chevron_right
-          </span>
-        </Link>
+        <div style={{ height: '80vh', display: 'flex', alignItems: 'center' }}>
+          <Link href={next}>
+            <span
+              className="material-symbols-outlined"
+              style={{
+                fontWeight: '200',
+                fontSize: '1.2rem',
+                flexGrow: '1',
+              }}
+            >
+              chevron_right
+            </span>
+          </Link>
+        </div>
       </main>
     </>
   );
