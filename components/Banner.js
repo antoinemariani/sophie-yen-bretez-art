@@ -34,7 +34,7 @@ export default function Banner({
         <section
           className={imgpos === 'right' ? styles.banner_reverse : styles.banner}
         >
-          <Image src={imgSrc} alt={imgAlt} width="30em" />
+          <Image src={imgSrc} alt={imgAlt} width="1000" height="1000" />
           <CategoryLink title={title} href={href} />
         </section>
       );
@@ -43,7 +43,7 @@ export default function Banner({
         <section
           className={imgpos === 'right' ? styles.banner_reverse : styles.banner}
         >
-          <Image src={imgSrc} alt={imgAlt} width="30em" />
+          <Image src={imgSrc} alt={imgAlt} width="1000" height="1000" />
           <div className={styles.contact_links}>
             <ContactLink
               title={'Instagram'}
@@ -66,7 +66,13 @@ export default function Banner({
           className={imgpos === 'right' ? styles.banner_reverse : styles.banner}
         >
           {/* <span className="material-symbols-rounded">arrow_left</span> */}
-          <Image src={imgSrc} alt={imgAlt} imgpos={imgpos} width="30em" />
+          <Image
+            src={imgSrc}
+            alt={imgAlt}
+            imgpos={imgpos}
+            width="1000"
+            height="1000"
+          />
           <TextColumn
             imgpos={imgpos}
             poem={poem}

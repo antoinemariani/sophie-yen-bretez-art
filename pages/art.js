@@ -3,9 +3,17 @@ import Grid from '@/components/Grid';
 
 import styles from '@/styles/art.module.scss';
 
-import imagesDatabase from '@/data/db';
+import { createClient } from 'next-sanity';
 
-export default function Home() {
+const client = createClient({
+  projectId: 'lg25komk',
+  dataset: 'production',
+  apiVersion: '2022-03-25',
+  useCdn: false,
+});
+// import imagesDatabase from '@/data/db';
+
+export default function Art({ arts }) {
   return (
     <>
       <Head>
@@ -15,8 +23,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Grid>{imagesDatabase}</Grid>
+        <Grid>{arts}</Grid>
       </main>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const arts = await client.fetch(`*[_type == "art"]{
+    ...,
+    "imageUrl": image.asset->url
+  }`);
+  return {
+    props: {
+      arts,
+    },
+  };
 }

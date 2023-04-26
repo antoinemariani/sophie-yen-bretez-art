@@ -1,5 +1,6 @@
 import styles from '@/styles/text-column.module.scss';
 import Link from 'next/link';
+import { PortableText } from '@portabletext/react';
 
 export default function TextColumn({
   imgpos,
@@ -9,9 +10,11 @@ export default function TextColumn({
   technique,
   date,
 }) {
-  const splitText = poem
-    .split('\n')
-    .map((str, index) => <p key={index}>{str}</p>);
+  // const splitText = poem
+  //   // .split('\n')
+  //   .map((str, index) => <p key={index}>{str}</p>);
+
+  const splitText = <PortableText value={poem} />;
 
   return (
     <div
