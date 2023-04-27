@@ -7,6 +7,7 @@ import imagesDatabase from '@/data/db';
 import Image from 'next/image';
 
 import homeImage from '@/data/img/home.jpeg';
+import Link from 'next/link';
 
 // const sampleLinkTitle = 'Paintings';
 // const sampleLinkHref = '/paintings';
@@ -28,9 +29,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div className={styles.home}>
-          <Image src={homeImage} alt="home" />
-        </div>
+        <Link className={styles.home} href="/art">
+          <Image src={homeImage} alt="home" priority={true} />
+        </Link>
         {/* <Banner
           variant="category"
           imgpos="right"

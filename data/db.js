@@ -24,6 +24,8 @@ const imagesDatabase = await client.fetch(
 }`
 );
 
+export default imagesDatabase;
+
 // const imagesDatabase = [
 //   {
 //     id: 0,
@@ -133,5 +135,3 @@ const imagesDatabase = await client.fetch(
 //     date: 'October 2022',
 //   },
 // ];
-
-export default imagesDatabase;

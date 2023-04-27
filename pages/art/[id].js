@@ -8,15 +8,6 @@ import Banner from '@/components/Banner';
 
 import styles from '@/styles/[id].module.scss';
 
-// import { createClient } from 'next-sanity';
-
-// const client = createClient({
-//   projectId: 'lg25komk',
-//   dataset: 'production',
-//   apiVersion: '2022-03-25',
-//   useCdn: false,
-// });
-
 const artDatabase = imagesDatabase;
 
 export async function getStaticProps({ params }) {
@@ -73,47 +64,65 @@ export default function Art({ artData }) {
         <title>{artData.title}</title>
       </Head>
       <main className={styles.main}>
-        <h1 className={styles.art_title}>{artData.title}</h1>
-        <div style={{ height: '80vh', display: 'flex', alignItems: 'center' }}>
-          <Link href={previous}>
-            <span
-              className="material-symbols-outlined"
-              style={{
-                fontWeight: '200',
-                fontSize: '1.2rem',
-                flexGrow: '1',
-              }}
-            >
-              chevron_left
-            </span>
-          </Link>
-        </div>
-        <Banner
-          variant="image-details"
-          imgpos="left"
-          imgSrc={artData.imageUrl}
-          imgAlt={artData.title}
-          title={artData.title}
-          description={artData.description}
-          href={'/art/' + artData.id}
-          poem={artData.poem}
-          size={artData.size}
-          technique={artData.technique}
-          date={artData.date}
-        />
-        <div style={{ height: '80vh', display: 'flex', alignItems: 'center' }}>
-          <Link href={next}>
-            <span
-              className="material-symbols-outlined"
-              style={{
-                fontWeight: '200',
-                fontSize: '1.2rem',
-                flexGrow: '1',
-              }}
-            >
-              chevron_right
-            </span>
-          </Link>
+        <Link className={styles.back} href="/art">
+          <span
+            className="material-symbols-outlined"
+            style={{
+              fontWeight: '200',
+              fontSize: '1.2rem',
+              flexGrow: '1',
+            }}
+          >
+            arrow_back
+          </span>
+          <p>Back to gallery</p>
+        </Link>
+        <div className={styles.banner}>
+          <div
+            style={{ height: '80vh', display: 'flex', alignItems: 'center' }}
+          >
+            <Link href={previous}>
+              <span
+                className="material-symbols-outlined"
+                style={{
+                  fontWeight: '200',
+                  fontSize: '1.2rem',
+                  flexGrow: '1',
+                }}
+              >
+                chevron_left
+              </span>
+            </Link>
+          </div>
+          <Banner
+            variant="image-details"
+            imgpos="left"
+            imgSrc={artData.imageUrl}
+            imgAlt={artData.title}
+            title={artData.title}
+            description={artData.description}
+            href={'/art/' + artData.id}
+            poem={artData.poem}
+            size={artData.size}
+            technique={artData.technique}
+            date={artData.date}
+          />
+          <div
+            style={{ height: '80vh', display: 'flex', alignItems: 'center' }}
+          >
+            <Link href={next}>
+              <span
+                className="material-symbols-outlined"
+                style={{
+                  fontWeight: '200',
+                  fontSize: '1.2rem',
+                  flexGrow: '1',
+                }}
+              >
+                chevron_right
+              </span>
+            </Link>
+          </div>
         </div>
       </main>
     </>

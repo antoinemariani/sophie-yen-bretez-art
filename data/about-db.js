@@ -1,3 +1,5 @@
+// import client from './sanity-client';
+
 import { createClient } from 'next-sanity';
 
 const client = createClient({
@@ -7,4 +9,6 @@ const client = createClient({
   useCdn: false,
 });
 
-export default client;
+const aboutDatabase = await client.fetch(`*[_type == "about"]`);
+
+export default aboutDatabase;
