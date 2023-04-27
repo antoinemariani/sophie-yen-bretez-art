@@ -27,7 +27,7 @@ export default function TextColumn({
         <span className={styles.details}>
           <p className={styles.detail_regular}>{size}</p>
           <p className={styles.detail_regular}>{technique}</p>
-          <p className={styles.detail_italic}>{date}</p>
+          <p className={styles.detail_regular}>{date.split('-').at(0)}</p>
         </span>
       </div>
     </div>

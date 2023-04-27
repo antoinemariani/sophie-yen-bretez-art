@@ -75,6 +75,7 @@ export default function Banner({
             priority={true}
           />
           <TextColumn
+            id="text-column"
             imgpos={imgpos}
             poem={poem}
             size={size}

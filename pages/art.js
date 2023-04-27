@@ -30,7 +30,7 @@ export default function Art({ arts }) {
 }
 
 export async function getStaticProps() {
-  const arts = await client.fetch(`*[_type == "art"]{
+  const arts = await client.fetch(`*[_type == "art"] | order(_createdAt asc){
     ...,
     "imageUrl": image.asset->url
   }`);
