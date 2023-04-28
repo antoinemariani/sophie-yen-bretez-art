@@ -20,10 +20,10 @@ export default function Navbar({}) {
         </Link>
 
         {/* To activate in productions in June 2023 : */}
-        <Link className={styles.li} href="/">
+        <Link className={styles.li} href="/exhibitions">
           Exhibitions
         </Link>
-        <Link className={styles.li} href="/">
+        <Link className={styles.li_disabled} href="/" disabled={true}>
           Press
         </Link>
         {/* end of unactivated pages */}

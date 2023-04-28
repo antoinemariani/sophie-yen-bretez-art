@@ -1,2 +1,28 @@
-// .main {
-// }
+.main {
+  align-items: flex-start;
+  min-height: 80vh;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex-grow: 1;
+  height: 100%;
+
+  font-size: 2rem;
+  a {
+    text-decoration: underline;
+  }
+
+  p {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    font-weight: 300;
+  }
+}
+
+.inquiry {
+  font-style: italic;
+}

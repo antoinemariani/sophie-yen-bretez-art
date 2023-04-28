@@ -46,7 +46,23 @@
   text-align: center;
   text-transform: uppercase;
 
-  color: var(--light-gray);
+  color: var(--dark-gray);
+
+  &_disabled {
+    opacity: 0.5;
+    font-family: var(--font-sans);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1vw;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: var(--light-gray);
+  }
 }
 
 .ul {
