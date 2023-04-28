@@ -30,13 +30,19 @@ export default function Art({ arts }) {
 }
 
 export async function getStaticProps() {
-  const arts = await client.fetch(`*[_type == "art"] | order(_createdAt asc){
-    ...,
-    "imageUrl": image.asset->url
+  // original query :
+  // *[_type == "art"] | order(_createdAt asc){
+  //   ...,
+  //   "imageUrl": image.asset->url
+  // }
+
+  const arts =
+    await client.fetch(`*[_type == "works"] | order(_createdAt asc)[0]{
+    grid[]->{..., "imageUrl": image.asset->url},
   }`);
   return {
     props: {
-      arts,
+      arts: arts.grid,
     },
   };
 }
