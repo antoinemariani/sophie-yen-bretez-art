@@ -10,9 +10,6 @@ import 'core-js/actual/array/group';
 // import aboutDatabase from '@/data/about-db';
 import { createClient } from 'next-sanity';
 
-const aboutDescription =
-  "Sophie-Yen Bretez, born in Vietnam in 1994 and based in Paris, is a French self-taught painter. After several years in management positions in the communication and music industry, Bretez returned to painting in 2021.\nSophie-Yen Bretez's work explores the intersection of color, form and symbolism to create vibrant and surreal compositions. Inspired by her own experience to life and memories, she aims to invite to reflect on political, psychological, existential and philosophical issues through intimate narrative.\nSophie-Yen Bretez's work depicts the ambivalence of life and what is more tragic and poetic in it without any filter except the one of the colors. She wants to paint the vital force which remains in oneself despite of all the pain, the sadness and the past. She says, « I paint horizons for those who have suffered. They symbolize 'the possible and the elsewhere', a salutary beyond when the 'here and now' is too difficult to overcome. »\nThis ambivalence is expressed by the dialogue between substance and form. The colorful and vibrating aesthetic confronts the narrative of each painting that recounts more tragic elements of life. Through this dynamic, Sophie-Yen Bretez delves into the themes of intimacy and narrative which are highlighted by the titles of each painting in the form of poems written by the artist. It guides the viewer in understanding each artwork and brings an additional level of dialogue between her work, the viewer and herself.\nThe artist also explores the concept of reverse voyeurism through her characters that challenge the viewer with their frontal gaze. The subjects with ambivalent facial expressions and obvious nudity invite us to reflect on the representation of the female body and its sexualization.\nAfter a Group Show in London in 2022 at the JD Malat Gallery, which represents the artist, Sophie-Yen Bretez will present her first Solo Show in June 2023 through 14 paintings.";
-
 export async function getStaticProps() {
   const client = createClient({
     projectId: 'lg25komk',
@@ -29,7 +26,6 @@ export async function getStaticProps() {
     'portraitUrl': portrait.asset->url,
     }`);
 
-  // const artData = artDatabase.find((img) => img._id == params.id.toString());
   return {
     props: {
       aboutData,

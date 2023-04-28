@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
 
-import Navbar from '@/components/Navbar';
 import imagesDatabase from '@/data/db';
 import Banner from '@/components/Banner';
 
