@@ -13,7 +13,7 @@ export default function Description({ title, description }) {
     <div className={styles.description}>
       <h4>{title}</h4>
       {/* <span className={styles.description_text}> */}
-      {description ? splitText : <p>{description}</p>}
+      {splitText}
       {/* </span> */}
     </div>
   );

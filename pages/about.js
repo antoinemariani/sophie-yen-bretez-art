@@ -4,6 +4,9 @@ import styles from '@/styles/about.module.scss';
 import Banner from '@/components/Banner';
 import aboutImage from '@/data/img/about.jpg';
 
+import 'core-js/actual/array/group-to-map';
+import 'core-js/actual/array/group';
+
 // import aboutDatabase from '@/data/about-db';
 import { createClient } from 'next-sanity';
 
@@ -22,7 +25,7 @@ export async function getStaticProps() {
     await client.fetch(`*[_type == "about"] | order(_updatedAt desc)[0]{
     ...,
     education[]->{title, year, description},
-    exhibitions[]->{...},
+    exhibitions[]->{..., 'gallery': gallery->{...}},
     'portraitUrl': portrait.asset->url,
     }`);
 
@@ -44,23 +47,41 @@ export default function About({ aboutData }) {
     );
   });
 
-  // const exhibitions = aboutData.exhibitions
-  //   .groupToMap(({ year }) => year)
-  //   .map((year) => {
-  //     return (
-  //       <span className={styles.experience_item} key={year}>
-  //         <h4>{year}</h4>
-  //         {year.items.map((item, i) => {
-  //           return (
-  //             <p key={i}>
-  //               « {item.title} », {item.gallery.name}, {item.gallery.city},{' '}
-  //               {item.gallery.country} <strong>(Solo Show)</strong>
-  //             </p>
-  //           );
-  //         })}
-  //       </span>
-  //     );
-  //   });
+  const exhibitions = aboutData.exhibitions;
+  // const years = Array(30)
+  //   .fill(2022)
+  //   .map((x, y) => x + y);
+  const years = exhibitions
+    .map((item) => {
+      return item.startDate.substring(0, 4);
+    })
+    .filter((value, index, self) => self.indexOf(value) === index);
+
+  const exhibitionsItems = years.map((year) => {
+    const yearItems = exhibitions.filter(
+      (item) => parseInt(item.startDate.substring(0, 4), 10) == year
+    );
+    if (yearItems.length > 0) {
+      return (
+        <span className={styles.experience_item} key={year}>
+          <h4>{year}</h4>
+          {yearItems.map((item, i) => {
+            return (
+              <p key={i}>
+                « {item.title} », {item.gallery.name}, {item.gallery.city},{' '}
+                {item.gallery.country}{' '}
+                {item.soloShow ? (
+                  <strong>(Solo Show)</strong>
+                ) : (
+                  <strong>(Group Show)</strong>
+                )}
+              </p>
+            );
+          })}
+        </span>
+      );
+    }
+  });
 
   return (
     <>
@@ -86,24 +107,7 @@ export default function About({ aboutData }) {
           </div>
           <div className={styles.experience_block}>
             <h2>Solo and group exhibitions</h2>
-            <span className={styles.experience_item}>
-              <h4>2022</h4>
-              <p>
-                « Women, Empowered », JD Malat Gallery, London, UK{' '}
-                <strong>(Group Show)</strong>
-              </p>
-            </span>
-            <span className={styles.experience_item}>
-              <h4>2023</h4>
-              <p>
-                « Powerful, despite it all », JD Malat Gallery, London, UK{' '}
-                <strong>(Solo Show)</strong>
-              </p>
-              <p>
-                « All together », Lorin Gallery, Los Angeles, USA{' '}
-                <strong>(Group Show)</strong>
-              </p>
-            </span>
+            {exhibitionsItems}
           </div>
         </div>
       </main>
