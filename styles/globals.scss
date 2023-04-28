@@ -117,7 +117,11 @@ main {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: calc(2.5vw + 2rem);
+  padding: 8px;
+
+  @media (min-width: 768px) {
+    padding: calc(2.5vw + 2rem);
+  }
   min-height: 60vh;
   gap: 2rem;
 }
