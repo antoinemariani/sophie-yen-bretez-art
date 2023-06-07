@@ -56,30 +56,33 @@ export default function Navbar({}) {
   );
 
   const mobileNavbar = (
-    <nav className={styles.navbar}>
-      <Link href="/">
-        <h1 className={styles.navbar_title}>mobile</h1>
+    <nav className={styles.mobile_navbar}>
+      <Link>
+        <span className={styles.mobile_navbar_burger}>menu</span>
       </Link>
-      <div className={styles.ul}>
-        <Link className={styles.li} href="/">
+      <Link href="/">
+        <h1 className={styles.mobile_navbar_title}>sophie-yen bretez</h1>
+      </Link>
+      <div className={styles.mobile_ul}>
+        <Link className={styles.mobile_li} href="/">
           Home
         </Link>
-        <Link className={styles.li} href="/art">
+        <Link className={styles.mobile_li} href="/art">
           Works
         </Link>
-        <Link className={styles.li} href="/about">
+        <Link className={styles.mobile_li} href="/about">
           About
         </Link>
 
         {/* To activate in productions in June 2023 : */}
-        <Link className={styles.li} href="/exhibitions">
+        <Link className={styles.mobile_li} href="/exhibitions">
           Exhibitions
         </Link>
-        <Link className={styles.li_disabled} href="/" disabled={true}>
+        <Link className={styles.mobile_li_disabled} href="/" disabled={true}>
           Press
         </Link>
         {/* end of unactivated pages */}
-        <Link className={styles.li} href="/contact">
+        <Link className={styles.mobile_li} href="/contact">
           Contact
         </Link>
       </div>
