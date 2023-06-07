@@ -101,18 +101,129 @@
 
 // Mobile Navbar
 
-.mobile_navbar {
+.mobile {
   display: flex;
+  z-index: 40;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  padding: 16px;
-  gap: 10px;
 
-  position: absolute;
-  width: 390px;
-  height: 85px;
-  left: 0px;
-  top: 0px;
+  padding: 16px calc(2.5vw + 2rem);
+  gap: 1em;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  width: 100vw;
 
   background: #ffffff;
+  font-family: var(--font-sans);
+
+  &_menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 1em;
+    width: 100vw;
+
+    background: #ffffff;
+    font-family: var(--font-sans);
+  }
+
+  &_title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: var(--font-sans);
+    font-style: normal;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1rem;
+    flex-grow: 1;
+
+    color: var(--dark-gray);
+  }
+
+  &_burger {
+    font-family: var(--font-sans);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: var(--dark-gray);
+  }
+
+  &_li {
+    font-family: var(--font-sans);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: var(--dark-gray);
+
+    &_disabled {
+      opacity: 0.5;
+      font-family: var(--font-sans);
+      font-style: normal;
+      font-weight: 400;
+      /* identical to box height */
+
+      display: flex;
+      align-items: center;
+      text-align: center;
+      text-transform: uppercase;
+
+      color: var(--light-gray);
+    }
+  }
+}
+
+.ulClose {
+  // display: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1em;
+  background-color: red;
+
+  height: 0px;
+  width: 100%;
+  padding: 0px;
+  opacity: 0%;
+}
+
+.ulOpen {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1em;
+  opacity: 100%;
+  width: 100%;
+
+  background-color: blue;
+}
+
+.transition {
+  z-index: 40;
+  transition: height 1s ease-in-out;
+  transition: background-color 1s ease-in-out;
 }
