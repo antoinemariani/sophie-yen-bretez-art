@@ -1,5 +1,7 @@
 import styles from '@/styles/footer.module.scss';
+import Image from 'next/image';
 import Link from 'next/link';
+import instagramSvg from '@/public/instagram.svg';
 
 export default function Footer() {
   return (
@@ -9,12 +11,7 @@ export default function Footer() {
         href="https://www.instagram.com/sophieyen.bretez/"
         className={styles.instagram}
       >
-        <span
-          className="material-symbols-outlined"
-          style={{ fontWeight: '200', fontSize: '1.2rem' }}
-        >
-          photo_camera
-        </span>
+        <Image src={instagramSvg} width={15} height={15} alt={'Instagram'} />
         <span className={styles.external}>
           <p className={styles.external_text}>sophieyen.bretez</p>
           {/* <span className="material-symbols-rounded">arrow_outward</span> */}
