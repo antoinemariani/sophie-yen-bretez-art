@@ -202,12 +202,12 @@
   justify-content: flex-end;
   align-items: center;
   gap: 1em;
-  background-color: red;
 
   height: 0px;
   width: 100%;
   padding: 0px;
   opacity: 0%;
+  transform: translateY(-100%);
 }
 
 .ulOpen {
@@ -218,12 +218,14 @@
   gap: 1em;
   opacity: 100%;
   width: 100%;
-
-  background-color: blue;
+  height: 100%;
 }
 
 .transition {
   z-index: 40;
   transition: height 1s ease-in-out;
-  transition: background-color 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+  transition: border 1s ease-in-out;
+  transition: scale 1s ease-in-out;
+  transition: transform 1s ease-in-out;
 }

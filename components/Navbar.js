@@ -112,7 +112,7 @@ export default function Navbar({}) {
   // );
 
   const mobileNavbar = (
-    <nav className={styles.mobile}>
+    <nav className={`${styles.mobile}`}>
       <div className={styles.mobile_menu}>
         <div
           className={`${styles.transition} ${
