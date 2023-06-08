@@ -5,7 +5,15 @@ import { useState, useEffect } from 'react';
 
 export default function Navbar({}) {
   const [media, setMedia] = useState('null');
-  const [burger, setBurger] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuClick = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenuClick = () => {
+    setIsMenuOpen(false);
+  };
 
   const handleMediaQueryChange = (mediaQuery) => {
     if (mediaQuery.matches) {
@@ -56,120 +64,46 @@ export default function Navbar({}) {
     </nav>
   );
 
-  const handleBurger = () => {
-    setBurger(!burger);
-  };
-
-  // const openMenu = (
-  //   <div className={styles.mobile_menu}>
-  //     <div className={styles.mobile_ul}>
-  //       <Link className={styles.mobile_li} onClick={handleBurger} href="/">
-  //         Home
-  //       </Link>
-  //       <Link className={styles.mobile_li} onClick={handleBurger} href="/art">
-  //         Works
-  //       </Link>
-  //       <Link className={styles.mobile_li} onClick={handleBurger} href="/about">
-  //         About
-  //       </Link>
-
-  //       {/* To activate in productions in June 2023 : */}
-  //       <Link
-  //         className={styles.mobile_li}
-  //         onClick={handleBurger}
-  //         href="/exhibitions"
-  //       >
-  //         Exhibitions
-  //       </Link>
-  //       <Link
-  //         className={styles.mobile_li_disabled}
-  //         onClick={handleBurger}
-  //         href="/"
-  //         disabled={true}
-  //       >
-  //         Press
-  //       </Link>
-  //       {/* end of unactivated pages */}
-
-  //       <Link
-  //         className={styles.mobile_li}
-  //         onClick={handleBurger}
-  //         href="/contact"
-  //       >
-  //         Contact
-  //       </Link>
-  //     </div>
-  //     <span onClick={handleBurger} className={styles.mobile_burger}>
-  //       <span className="material-symbols-outlined">close</span>
-  //     </span>
-  //   </div>
-  // );
-
-  // const closeMenu = (
-  //   <div onClick={handleBurger} className={styles.mobile_burger}>
-  //     menu
-  //   </div>
-  // );
-
   const mobileNavbar = (
-    <nav className={`${styles.mobile}`}>
-      <div className={styles.mobile_menu}>
-        <div
-          className={`${styles.transition} ${
-            burger ? styles.ulOpen : styles.ulClose
-          }`}
-        >
-          <Link className={styles.mobile_li} onClick={handleBurger} href="/">
-            Home
-          </Link>
-          <Link className={styles.mobile_li} onClick={handleBurger} href="/art">
-            Works
-          </Link>
-          <Link
-            className={styles.mobile_li}
-            onClick={handleBurger}
-            href="/about"
-          >
-            About
-          </Link>
-
-          {/* To activate in productions in June 2023 : */}
-          <Link
-            className={styles.mobile_li}
-            onClick={handleBurger}
-            href="/exhibitions"
-          >
-            Exhibitions
-          </Link>
-          <Link
-            className={styles.mobile_li_disabled}
-            onClick={handleBurger}
-            href="/"
-            disabled={true}
-          >
-            Press
-          </Link>
-          {/* end of unactivated pages */}
-
-          <Link
-            className={styles.mobile_li}
-            onClick={handleBurger}
-            href="/contact"
-          >
-            Contact
-          </Link>
-        </div>
-        <span onClick={handleBurger} className={styles.mobile_burger}>
-          {burger ? (
-            <span className="material-symbols-outlined">close</span>
-          ) : (
-            'menu'
-          )}
-        </span>
-      </div>
+    <nav className={styles.mobile}>
       <Link href="/">
-        <h1 className={styles.mobile_title}>sophie-yen bretez</h1>
+        <h1 className={styles.mobile_title} onClick={closeMenuClick}>
+          sophie-yen bretez
+        </h1>
       </Link>
+      <span
+        className={`${styles.mobile_burger} material-symbols-outlined`}
+        onClick={handleMenuClick}
+      >
+        {isMenuOpen ? 'close' : 'menu'}
+      </span>
+      <ul
+        onClick={closeMenuClick}
+        className={`${styles.mobile_menu} ${isMenuOpen ? styles.open : ''}`}
+      >
+        <Link className={styles.mobile_li} href="/">
+          Home
+        </Link>
+        <Link className={styles.mobile_li} href="/art">
+          Works
+        </Link>
+        <Link className={styles.mobile_li} href="/about">
+          About
+        </Link>
+
+        {/* To activate in productions in June 2023 : */}
+        <Link className={styles.mobile_li} href="/exhibitions">
+          Exhibitions
+        </Link>
+        <Link className={styles.mobile_li_disabled} href="/" disabled={true}>
+          Press
+        </Link>
+        {/* end of unactivated pages */}
+
+        <Link className={styles.mobile_li} href="/contact">
+          Contact
+        </Link>
+      </ul>
     </nav>
   );
 

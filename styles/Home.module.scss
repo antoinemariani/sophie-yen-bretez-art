@@ -5,12 +5,13 @@
 .home {
   margin-top: 1vh;
   width: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   // padding: 2rem;
-  max-height: 80vh;
+  // max-height: 80vh;
   gap: 2rem;
 
   img {
@@ -20,6 +21,6 @@
   }
 
   @media (min-width: 1024px) {
-    max-width: 90vh;
+    max-width: 90vw;
   }
 }
