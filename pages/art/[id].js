@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 
@@ -26,9 +27,6 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  // const arts = await client.fetch(`*[_type == "art"]{
-  //   _id
-  // }`);
   const paths = artDatabase.map((img) => {
     return {
       params: {
@@ -43,6 +41,7 @@ export async function getStaticPaths() {
 }
 
 export default function Art({ artData }) {
+  const router = useRouter();
   const next =
     artDatabase.findIndex((img) => img === artData) + 1 >= artDatabase.length
       ? '/art/0'
@@ -56,6 +55,20 @@ export default function Art({ artData }) {
       : '/art/' +
         artDatabase.find((img, i) => artDatabase.at(i + 1)._id === artData._id)
           ._id;
+
+  useEffect(() => {
+    // window.onkeyup = checkKey;
+    document.addEventListener('keyup', (e) => arrowKeysNavigation(e));
+
+    const arrowKeysNavigation = (e) => {
+      if (e.key === 'ArrowLeft') {
+        router.push(previous);
+      }
+      if (e.key === 'ArrowRight') {
+        router.push(next);
+      }
+    };
+  }, [router, next, previous]);
 
   return (
     <>
@@ -74,7 +87,7 @@ export default function Art({ artData }) {
           >
             arrow_back
           </span>
-          <p>Back to gallery</p>
+          <p>Back</p>
         </Link>
         <div className={styles.banner}>
           <div
@@ -127,4 +140,3 @@ export default function Art({ artData }) {
     </>
   );
 }
-// export default Art;

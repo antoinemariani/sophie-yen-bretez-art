@@ -12,6 +12,7 @@ import dynamic from 'next/dynamic';
 // const Lightbox = dynamic(() => import('@/Lightbox'));
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
+import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 import LightboxImage from '@/components/LightboxImage';
 //
 
@@ -112,6 +113,7 @@ export default function Banner({
               slides={[{ src: imgSrc, width: 3000, height: 3000 }]}
               // property below to disable swipe
               carousel={{ finite: true }}
+              plugins={[Zoom]}
               render={{
                 slide: LightboxImage,
                 buttonPrev: () => undefined,
