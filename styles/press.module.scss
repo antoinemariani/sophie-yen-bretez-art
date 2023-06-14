@@ -1,0 +1,44 @@
+.main {
+  align-items: flex-start;
+  min-height: 80vh;
+}
+
+.press {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex-grow: 1;
+  gap: 2rem;
+  height: 100%;
+}
+
+.inquiry {
+  font-style: italic;
+}
+
+.press_item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  a {
+    text-decoration: underline;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.8rem;
+    font-weight: 300;
+  }
+}
+
+.outward_link {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.125rem;
+  text-align: left;
+  color: var(--dark-gray);
+}
