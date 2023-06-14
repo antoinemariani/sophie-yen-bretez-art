@@ -57,15 +57,20 @@ export default function Art({ artData }) {
           ._id;
 
   useEffect(() => {
-    // window.onkeyup = checkKey;
     document.addEventListener('keyup', (e) => arrowKeysNavigation(e));
 
     const arrowKeysNavigation = (e) => {
       if (e.key === 'ArrowLeft') {
         router.push(previous);
+        return () => {
+          document.removeEventListener('keyup', arrowKeysNavigation);
+        };
       }
       if (e.key === 'ArrowRight') {
         router.push(next);
+        return () => {
+          document.removeEventListener('keyup', arrowKeysNavigation);
+        };
       }
     };
   }, [router, next, previous]);
