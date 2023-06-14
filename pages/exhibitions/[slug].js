@@ -72,7 +72,7 @@ export default function Exhibition({ exhibitionData }) {
           >
             arrow_back
           </span>
-          <p>Back to exhibitions</p>
+          <p>Back</p>
         </Link>
         <div className={styles.exhibition}>
           <div className={styles.exhibition_images}>
