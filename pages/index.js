@@ -1,12 +1,11 @@
 import Head from 'next/head';
 import styles from '@/styles/Home.module.scss';
 
-import Banner from '@/components/Banner';
+import { createClient } from 'next-sanity';
 
-import imagesDatabase from '@/data/db';
 import Image from 'next/image';
 
-import homeImage from '@/data/img/home.jpeg';
+import homeImageBackup from '@/data/img/home.jpeg';
 import Link from 'next/link';
 
 // const sampleLinkTitle = 'Paintings';
@@ -19,7 +18,11 @@ import Link from 'next/link';
 
 // const sampleTitle = 'Adoption';
 
-export default function Home() {
+export default function Home(keyVisual) {
+  const imageSrc =
+    keyVisual.keyVisual.art === null
+      ? homeImageBackup
+      : keyVisual.keyVisual.art[0].imageUrl;
   return (
     <>
       <Head>
@@ -30,41 +33,39 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <Link className={styles.home} href="/art">
-          <Image src={homeImage} alt="home" priority={true} />
+          <Image
+            src={imageSrc}
+            width="4000"
+            height="4000"
+            alt="home"
+            priority={true}
+          />
         </Link>
-        {/* <Banner
-          variant="category"
-          imgpos="right"
-          imgSrc={imagesDatabase[1].src}
-          imgAlt="paintings"
-          title="paintings"
-          href="/art"
-        />
-        <Banner
-          variant="category"
-          imgpos="left"
-          imgSrc={imagesDatabase[3].src}
-          imgAlt="about"
-          title="about"
-          href="/about"
-        />
-        <Banner
-          variant="category"
-          imgpos="right"
-          imgSrc={imagesDatabase[4].src}
-          imgAlt="press"
-          title="press"
-          href="/press"
-        />
-        <Banner
-          variant="category"
-          imgpos="left"
-          imgSrc={imagesDatabase[5].src}
-          imgAlt="contact"
-          title="contact"
-          href="/contact"
-        /> */}
       </main>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const client = createClient({
+    projectId: 'lg25komk',
+    dataset: 'production',
+    apiVersion: '2022-03-25',
+    useCdn: false,
+  });
+
+  const keyVisual =
+    await client.fetch(`*[_type == 'keyVisual'] | order(_updatedAt desc)[0]{
+      ...,
+      art[]->{...,
+      'imageUrl': image.asset->url
+      },
+      'imageUrl': art[0]->imageUrl
+    }`);
+
+  return {
+    props: {
+      keyVisual,
+    },
+  };
 }

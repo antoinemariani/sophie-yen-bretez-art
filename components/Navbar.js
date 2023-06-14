@@ -108,10 +108,8 @@ export default function Navbar({}) {
   );
 
   if (media === 'desktop') {
-    // console.log('desktop');
     return desktopNavbar;
   } else if (media === 'mobile') {
-    // console.log('mobile');
     return mobileNavbar;
   }
 }
