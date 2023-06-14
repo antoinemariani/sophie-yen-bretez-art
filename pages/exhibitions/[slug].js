@@ -1,6 +1,8 @@
 // exh.slug.current
 
 import { createClient } from 'next-sanity';
+import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
 
 import Link from 'next/link';
 import Head from 'next/head';
@@ -52,6 +54,36 @@ export async function getStaticPaths() {
 }
 
 export default function Exhibition({ exhibitionData }) {
+  const router = useRouter();
+  const exhibitionImages = [
+    exhibitionData.coverImageUrl,
+    ...exhibitionData.images,
+  ];
+
+  console.log(exhibitionImages);
+  const [imageIndex, setImageIndex] = useState(0);
+  const [displayedImage, setDisplayedImage] = useState(
+    exhibitionImages[imageIndex]
+  );
+
+  console.log('initialIndex: ' + imageIndex);
+  console.log('initialImage: ' + displayedImage);
+
+  const handleImage = (e) => {
+    if (e === 1 && imageIndex === 0) {
+      setImageIndex(imageIndex + e);
+    } else if (e === -1 && imageIndex === 0) {
+      setImageIndex(exhibitionImages.length - 1);
+    } else if (e === 1 && imageIndex === exhibitionImages.length - 1) {
+      setImageIndex(0);
+    } else if (e === -1 || e === 1) {
+      setImageIndex(imageIndex + e);
+    }
+    setDisplayedImage(exhibitionImages[imageIndex]);
+    console.log('imageIndex: ' + imageIndex);
+    console.log('displayedImage: ' + displayedImage);
+  };
+
   return (
     <>
       <Head>
@@ -72,32 +104,70 @@ export default function Exhibition({ exhibitionData }) {
           >
             arrow_back
           </span>
-          <p>Back</p>
+          <p>Back to exhibitions</p>
         </Link>
-        <div className={styles.exhibition}>
-          <div className={styles.exhibition_images}>
-            {exhibitionData.images.map((img, i) => {
-              return (
+        <div className={styles.banner}>
+          {exhibitionImages.length > 1 ? (
+            <button className={styles.button} onClick={() => handleImage(-1)}>
+              <span
+                className="material-symbols-outlined"
+                style={{
+                  fontWeight: '200',
+                  fontSize: '1.2rem',
+                  flexGrow: '1',
+                }}
+              >
+                chevron_left
+              </span>
+            </button>
+          ) : null}
+          <div className={styles.exhibition}>
+            <div className={styles.exhibition_images}>
+              {/* {exhibitionData.images.map((img, i) => {
+                return (
+                  <Image
+                    key={'img-' + i}
+                    src={img}
+                    alt={exhibitionData.title}
+                    width={1200}
+                    height={800}
+                    className={styles.exhibition_image}
+                  />
+                ); */}
+              {
                 <Image
-                  key={'img-' + i}
-                  src={img}
+                  src={displayedImage}
                   alt={exhibitionData.title}
                   width={1200}
                   height={800}
                   className={styles.exhibition_image}
                 />
-              );
-            })}
+              }
+            </div>
+            <div className={styles.exhibition_info}>
+              <p>
+                {exhibitionData.title} (
+                {exhibitionData.soloShow ? 'Solo Show' : 'Group Show'}),{' '}
+                {exhibitionData.gallery.name}, {exhibitionData.gallery.city},{' '}
+                {exhibitionData.gallery.country}
+              </p>
+              <p>{exhibitionData.startDate.substring(0, 4)}</p>
+            </div>
           </div>
-          <span className={styles.exhibitions_info}>
-            <p>
-              {exhibitionData.title} (
-              {exhibitionData.soloShow ? 'Solo Show' : 'Group Show'}),{' '}
-              {exhibitionData.gallery.name}, {exhibitionData.gallery.city},{' '}
-              {exhibitionData.gallery.country}
-            </p>
-            <p>{exhibitionData.startDate.substring(0, 4)}</p>
-          </span>
+          {exhibitionImages.length > 1 ? (
+            <button className={styles.button} onClick={() => handleImage(1)}>
+              <span
+                className="material-symbols-outlined"
+                style={{
+                  fontWeight: '200',
+                  fontSize: '1.2rem',
+                  flexGrow: '1',
+                }}
+              >
+                chevron_right
+              </span>
+            </button>
+          ) : null}
         </div>
       </main>
     </>
