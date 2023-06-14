@@ -52,7 +52,6 @@ export async function getStaticPaths() {
 }
 
 export default function Exhibition({ exhibitionData }) {
-  console.log(exhibitionData);
   return (
     <>
       <Head>
