@@ -8,6 +8,16 @@ import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
 
+// Lightbox support for fullscreen images
+import * as React from 'react';
+import dynamic from 'next/dynamic';
+// const Lightbox = dynamic(() => import('@/Lightbox'));
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
+import Zoom from 'yet-another-react-lightbox/plugins/zoom';
+import LightboxImage from '@/components/LightboxImage';
+//
+
 import styles from '@/styles/[slug].module.scss';
 
 const client = createClient({
@@ -54,6 +64,9 @@ export async function getStaticPaths() {
 }
 
 export default function Exhibition({ exhibitionData }) {
+  const [open, setOpen] = React.useState(false);
+  const [interactive, setInteractive] = React.useState(false);
+
   const router = useRouter();
   const exhibitionImages = [
     exhibitionData.coverImageUrl,
@@ -134,15 +147,37 @@ export default function Exhibition({ exhibitionData }) {
                     className={styles.exhibition_image}
                   />
                 ); */}
-              {
-                <Image
-                  src={displayedImage}
-                  alt={exhibitionData.title}
-                  width={1200}
-                  height={800}
-                  className={styles.exhibition_image}
+
+              <Image
+                src={displayedImage}
+                alt={exhibitionData.title}
+                width={1200}
+                height={800}
+                className={styles.exhibition_image}
+                onClick={() => {
+                  setOpen(true);
+                  setInteractive(true);
+                }}
+              />
+              {interactive && (
+                <Lightbox
+                  open={open}
+                  close={() => setOpen(false)}
+                  styles={{
+                    container: { backgroundColor: 'rgba(0, 0, 0, .8)' },
+                  }}
+                  slides={[{ src: displayedImage, width: 3000, height: 3000 }]}
+                  // property below to disable swipe
+                  carousel={{ finite: true }}
+                  plugins={[Zoom]}
+                  render={{
+                    slide: LightboxImage,
+                    buttonPrev: () => undefined,
+                    buttonNext: () => undefined,
+                    controls: () => null,
+                  }}
                 />
-              }
+              )}
             </div>
             <div className={styles.exhibition_info}>
               <p>
