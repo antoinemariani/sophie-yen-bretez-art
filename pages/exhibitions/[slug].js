@@ -68,19 +68,19 @@ export default function Exhibition({ exhibitionData }) {
   const [interactive, setInteractive] = React.useState(false);
 
   const router = useRouter();
-  const exhibitionImages = [
-    exhibitionData.coverImageUrl,
-    ...exhibitionData.images,
-  ];
 
-  console.log(exhibitionImages);
+  const exhibitionImages = Array.isArray(exhibitionData.images)
+    ? [exhibitionData.coverImageUrl, ...exhibitionData.images]
+    : [exhibitionData.coverImageUrl];
+
+  // console.log(exhibitionImages);
   const [imageIndex, setImageIndex] = useState(0);
   const [displayedImage, setDisplayedImage] = useState(
     exhibitionImages[imageIndex]
   );
 
-  console.log('initialIndex: ' + imageIndex);
-  console.log('initialImage: ' + displayedImage);
+  // console.log('initialIndex: ' + imageIndex);
+  // console.log('initialImage: ' + displayedImage);
 
   const handleImage = (e) => {
     if (e === 1 && imageIndex === 0) {
@@ -93,8 +93,8 @@ export default function Exhibition({ exhibitionData }) {
       setImageIndex(imageIndex + e);
     }
     setDisplayedImage(exhibitionImages[imageIndex]);
-    console.log('imageIndex: ' + imageIndex);
-    console.log('displayedImage: ' + displayedImage);
+    // console.log('imageIndex: ' + imageIndex);
+    // console.log('displayedImage: ' + displayedImage);
   };
 
   return (
@@ -147,6 +147,7 @@ export default function Exhibition({ exhibitionData }) {
                     className={styles.exhibition_image}
                   />
                 ); */}
+
               <Image
                 src={displayedImage}
                 alt={exhibitionData.title}
@@ -183,22 +184,8 @@ export default function Exhibition({ exhibitionData }) {
                 {exhibitionData.title} (
                 {exhibitionData.soloShow ? 'Solo Show' : 'Group Show'}),{' '}
                 {exhibitionData.gallery.name}, {exhibitionData.gallery.city},{' '}
-                {exhibitionData.gallery.country}{' '}
-                {exhibitionData.url ? (
-                  <Link href={exhibitionData.url} target="_blank">
-                    <span
-                      // className={
-                      //   styles.outward_link + ' material-symbols-outlined'
-                      // }
-                      className="material-symbols-outlined"
-                      style={({ color: '#2c2626' }, { fontSize: '0.8rem' })}
-                    >
-                      arrow_outward
-                    </span>
-                  </Link>
-                ) : null}
+                {exhibitionData.gallery.country}
               </p>
-              {exhibitionData.alongside ? <p>exhibitionData.alongside</p> : ''}
               <p>{exhibitionData.startDate.substring(0, 4)}</p>
             </div>
           </div>
