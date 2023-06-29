@@ -30,7 +30,7 @@ export default function Press({ pressData }) {
               <p key={i}>
                 « {item.title} », {item.media.toUpperCase()}{' '}
                 {item.url ? (
-                  <Link href={item.url}>
+                  <Link href={item.url} target="_blank">
                     <span
                       // className={
                       //   styles.outward_link + ' material-symbols-outlined'
