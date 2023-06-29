@@ -147,7 +147,6 @@ export default function Exhibition({ exhibitionData }) {
                     className={styles.exhibition_image}
                   />
                 ); */}
-
               <Image
                 src={displayedImage}
                 alt={exhibitionData.title}
@@ -184,8 +183,22 @@ export default function Exhibition({ exhibitionData }) {
                 {exhibitionData.title} (
                 {exhibitionData.soloShow ? 'Solo Show' : 'Group Show'}),{' '}
                 {exhibitionData.gallery.name}, {exhibitionData.gallery.city},{' '}
-                {exhibitionData.gallery.country}
+                {exhibitionData.gallery.country}{' '}
+                {exhibitionData.url ? (
+                  <Link href={exhibitionData.url} target="_blank">
+                    <span
+                      // className={
+                      //   styles.outward_link + ' material-symbols-outlined'
+                      // }
+                      className="material-symbols-outlined"
+                      style={({ color: '#2c2626' }, { fontSize: '0.8rem' })}
+                    >
+                      arrow_outward
+                    </span>
+                  </Link>
+                ) : null}
               </p>
+              {exhibitionData.alongside ? <p>exhibitionData.alongside</p> : ''}
               <p>{exhibitionData.startDate.substring(0, 4)}</p>
             </div>
           </div>
